@@ -15,13 +15,13 @@ function isValid(s) {
     return false;
   }
   let stack = [];
-  let closeToOpen = {
+  const closeToOpen = {
     ")": "(",
     "]": "[",
     "}": "{",
   };
 
-  for (let character of s) {
+  for (const character of s) {
     if (character in closeToOpen) {
       if (stack && stack[stack.length - 1] === closeToOpen[character]) {
         stack.pop();
