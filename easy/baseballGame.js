@@ -58,3 +58,31 @@ function calPoints(ops) {
   const totalSum = stackRecord.reduce((acc, currentVal) => acc + currentVal, 0);
   return totalSum;
 }
+// Practice stack data structure
+
+// Function declaration
+function calPoints(ops) {
+  let record = [];
+
+  for (let i = 0; i < ops.length; i++) {
+    switch (ops[i]) {
+      case "D":
+        const doubleScore = record[record.length - 1] * 2;
+        record.push(doubleScore);
+        break;
+      case "C":
+        record.pop();
+        break;
+      case "+":
+        const sumOfPrevTwoScores =
+          record[record.length - 1] + record[record.length - 2];
+        record.push(sumOfPrevTwoScores);
+        break;
+      default:
+        record.push(Number(ops[i]));
+        break;
+    }
+  }
+  const sum = record.reduce((acc, currentVal) => acc + currentVal, 0);
+  return sum;
+}
