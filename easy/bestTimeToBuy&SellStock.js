@@ -31,3 +31,28 @@ function maxProfit(prices) {
   }
   return maxProfit;
 }
+
+// Two Pointer Practice
+
+// Function declaration
+function maxProfit(prices) {
+  if (prices.length < 2) {
+    return 0;
+  }
+
+  let tempProfit = 0;
+  let maxProfit = 0;
+  let leftPointer = 0;
+  let rightPointer = 1;
+
+  while (rightPointer < prices.length) {
+    if (prices[leftPointer] < prices[rightPointer]) {
+      tempProfit = prices[rightPointer] - prices[leftPointer];
+      maxProfit = Math.max(tempProfit, maxProfit);
+    } else {
+      leftPointer = rightPointer;
+    }
+    rightPointer++;
+  }
+  return maxProfit;
+}
