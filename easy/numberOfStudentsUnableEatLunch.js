@@ -49,3 +49,16 @@ function countStudents(students, sandwhiches) {
   }
   return students.length;
 }
+
+// Stack DSA Practice
+function countStudents(students, sandwhiches) {
+  while (students.indexOf(sandwhiches[0]) !== -1) {
+    let firstStudent = students.shift();
+    if (firstStudent === sandwhiches[0]) {
+      sandwhiches[0].shift();
+    } else {
+      students.push(firstStudent);
+    }
+  }
+  return students.length;
+}
