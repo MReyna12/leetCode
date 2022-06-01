@@ -40,3 +40,33 @@ function containsDuplicate(nums) {
   }
   return false;
 }
+
+// Arrays/Hashing DSA Practice
+function containsDuplicate(nums) {
+  let numberCount = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    numberCount[nums[i]] ? numberCount[nums[i]]++ : (numberCount[nums[i]] = 1);
+  }
+
+  for (const number in numberCount) {
+    if (numberCount[number] > 1) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function containsDupleicate(nums) {
+  let numberCount = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (numberCount[nums[i]]) {
+      return true;
+    } else {
+      numberCount[nums[i]]
+        ? numberCount[nums[i]]++
+        : (numberCount[nums[i]] = 1);
+    }
+  }
+  return false;
+}
