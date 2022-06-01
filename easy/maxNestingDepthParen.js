@@ -24,3 +24,22 @@ function maxDepth(s) {
   }
   return depth;
 }
+
+// Stack DSA Practice
+function maxDepth(s) {
+  let stack = [];
+  let depth = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let character = s[i];
+    if (character === "(") {
+      stack.push(character);
+      if (depth < stack.length) {
+        depth = stack.length;
+      }
+    } else if (character === ")") {
+      stack.pop();
+    }
+  }
+  return depth;
+}
