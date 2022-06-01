@@ -57,7 +57,7 @@ function containsDuplicate(nums) {
   return false;
 }
 
-function containsDupleicate(nums) {
+function containsDuplicate(nums) {
   let numberCount = {};
   for (let i = 0; i < nums.length; i++) {
     if (numberCount[nums[i]]) {
