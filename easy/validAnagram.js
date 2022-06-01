@@ -36,3 +36,71 @@ function isAnagram(s, t) {
   }
   return true;
 }
+
+// Arrays/Hashing DSA
+
+function isAnagram(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  let letterObject = {};
+
+  for (const sLetter of s) {
+    letterObject[sLetter]
+      ? letterObject[sLetter]++
+      : (letterObject[sLetter] = 1);
+  }
+
+  for (const tLetter of t) {
+    if (!letterObject[tLetter]) {
+      return false;
+    } else {
+      letterObject[tLetter]--;
+    }
+  }
+  return true;
+}
+
+// Works for 32/36 test cases, but really long strings take too long to compare and time out on leetcode; Queue DSA practice
+function isAnagram(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+  const sArray = s.split("");
+  const tArray = t.split("");
+  while (sArray.indexOf(tArray[0]) !== -1) {
+    let firstLetterOfS = sArray.shift();
+    if (firstLetterOfS === tArray[0]) {
+      tArray.shift();
+    } else {
+      sArray.push(firstLetterOfS);
+    }
+  }
+  return sArray.length === 0 && tArray.length === 0;
+}
+
+// Arrays/Hashing DSA
+function isAnagram(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  let letterCount = {};
+
+  for (const sLetters of s) {
+    letterCount[sLetters]
+      ? letterCount[sLetters]++
+      : (letterCount[sLetters] = 1);
+  }
+
+  for (const tLetters of t) {
+    if (!letterCount[tLetters]) {
+      return false;
+    } else {
+      letterCount[tLetters]--;
+    }
+  }
+
+  return true;
+}
