@@ -86,3 +86,30 @@ function calPoints(ops) {
   const sum = record.reduce((acc, currentVal) => acc + currentVal, 0);
   return sum;
 }
+
+// Practice stack DSA
+function calPoints(ops) {
+  let record = [];
+  for (let i = 0; i < ops.length; i++) {
+    switch (ops[i]) {
+      case "D":
+        const doubleScore = record[record.length - 1] * 2;
+        record.push(doubleScore);
+        break;
+      case "C":
+        record.pop();
+        break;
+      case "+":
+        const addPrevTwoScores =
+          record[record.length - 1] + record[record.length - 2];
+        record.push(addPrevTwoScores);
+        break;
+      default:
+        const convertToNum = Number(ops[i]);
+        record.push(convertToNum);
+        break;
+    }
+  }
+  const sum = record.reduce((acc, currentVal) => acc + currentVal, 0);
+  return sum;
+}
