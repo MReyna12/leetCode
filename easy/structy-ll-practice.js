@@ -162,6 +162,19 @@ negOne.next = seven;
 //recursiveSumList(two);
 
 // Find a target value in a linked list
+// const linkedListFind = (head, target) => {
+//   let current = head;
+
+//   while (current !== null) {
+//     if (current.value === target) {
+//       return true;
+//     }
+//     current = current.next;
+//   }
+//   return false;
+// };
+
+// Practice Attempt - 1
 const linkedListFind = (head, target) => {
   let current = head;
 
@@ -171,39 +184,75 @@ const linkedListFind = (head, target) => {
     }
     current = current.next;
   }
+
   return false;
 };
 
+//console.log(linkedListFind(a, "C"));
+
 // Find a target value with recursion
+// const recursiveLinkedListFind = (head, target) => {
+//   if (head === null) return false;
+//   if (head.val === target) return true;
+
+//   return recursiveLinkedListFind(head.next, target);
+// };
+
+// Practice Attempt - 1
 const recursiveLinkedListFind = (head, target) => {
   if (head === null) return false;
-  if (head.val === target) return true;
+  if (head.value === target) return true;
 
   return recursiveLinkedListFind(head.next, target);
 };
 
-//console.log(linkedListFind(a, "E"));
 //console.log(recursiveLinkedListFind(a, "C"));
 
 // Get node value
 
 // Iteration
+// const getNodeValue = (head, index) => {
+//   let current = head;
+//   let count = 0;
+
+//   while (current !== null) {
+//     if (count === index) {
+//       return current.value;
+//     }
+//     current = current.next;
+//     count += 1;
+//   }
+
+//   return null;
+// };
+
+// Practice Attempt - 1
 const getNodeValue = (head, index) => {
   let current = head;
-  let count = 0;
+  let counter = 0;
 
   while (current !== null) {
-    if (count === index) {
+    if (counter === index) {
       return current.value;
     }
     current = current.next;
-    count += 1;
+    counter++;
   }
 
   return null;
 };
 
+//console.log(getNodeValue(a, 3));
+
 // Recursion
+// const recursiveGetNodeValue = (head, index) => {
+//   if (head === null) return null;
+//   if (index === 0) return head.value;
+
+//   return recursiveGetNodeValue(head.next, index - 1);
+// };
+
+// Practice Attempt - 1
 const recursiveGetNodeValue = (head, index) => {
   if (head === null) return null;
   if (index === 0) return head.value;
@@ -211,7 +260,6 @@ const recursiveGetNodeValue = (head, index) => {
   return recursiveGetNodeValue(head.next, index - 1);
 };
 
-//console.log(getNodeValue(a, 0));
 //console.log(recursiveGetNodeValue(a, 2));
 
 // Reverse linked list
