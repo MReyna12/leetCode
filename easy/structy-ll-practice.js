@@ -122,25 +122,44 @@ three.next = negOne;
 negOne.next = seven;
 
 // Sum via iterating through each current node and adding its value to sum
-const sumList = (head) => {
-  let sum = 0;
-  let current = head;
+// const sumList = (head) => {
+//   let sum = 0;
+//   let current = head;
 
-  while (current !== null) {
-    sum += current.value;
-    current = current.next;
-  }
-  return sum;
-};
+//   while (current !== null) {
+//     sum += current.value;
+//     current = current.next;
+//   }
+//   return sum;
+// };
 
-// Sum via recursion
-const recursiveSumList = (head) => {
-  if (head === null) return 0;
-  return head.value + recursiveSumList(head.next);
-};
+// Practice Attempt - 1
+// const sumList = (head) => {
+//   let current = head;
+//   let sum = 0;
+
+//   while (current !== null) {
+//     sum += current.value;
+//     current = current.next;
+//   }
+
+//   return sum;
+// };
 
 //console.log(sumList(two));
-//console.log(recursiveSumList(two));
+
+// Sum via recursion
+// const recursiveSumList = (head) => {
+//   if (head === null) return 0;
+//   return head.value + recursiveSumList(head.next);
+// };
+
+// const recursiveSumList = (head) => {
+//   if (head === null) return 0;
+//   return head.value + recursiveSumList(head.next);
+// };
+
+//recursiveSumList(two);
 
 // Find a target value in a linked list
 const linkedListFind = (head, target) => {
