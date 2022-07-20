@@ -265,27 +265,51 @@ const recursiveGetNodeValue = (head, index) => {
 // Reverse linked list
 
 // Iteration
+// const reverseList = (head) => {
+//   let previous = null;
+//   let current = head;
+//   while (current !== null) {
+//     const next = current.next;
+//     current.next = previous;
+//     previous = current;
+//     current = next;
+//   }
+//   return previous;
+// };
+
+// Practice Attempt - 1
 const reverseList = (head) => {
-  let previous = null;
   let current = head;
+  let previous = null;
+
   while (current !== null) {
-    const next = current.next;
+    let next = current.next;
     current.next = previous;
     previous = current;
     current = next;
   }
+
   return previous;
 };
 
+//console.log(reverseList(a));
+
 // Recursive version
+// const recursiveReverseList = (head, prev = null) => {
+//   if (head === null) return prev;
+//   const next = head.next;
+//   head.next = prev;
+//   return recursiveReverseList(next, head);
+// };
+
+// Practice Attempt - 1
 const recursiveReverseList = (head, prev = null) => {
   if (head === null) return prev;
-  const next = head.next;
+  let next = head.next;
   head.next = prev;
   return recursiveReverseList(next, head);
 };
 
-//console.log(reverseList(a));
 //console.log(recursiveReverseList(a));
 
 // Zipper lists
@@ -319,6 +343,8 @@ const zipperLists = (head1, head2) => {
   return head1;
 };
 
+// Practice Attempt - 1
+
 // Recursion
 const recursiveZipperList = (head1, head2) => {
   if (head1 === null && head2 === null) return null;
@@ -333,6 +359,8 @@ const recursiveZipperList = (head1, head2) => {
 
   return head1;
 };
+
+// Practice Attempt - 1
 
 //console.log(zipperLists(a, two));
 //console.log(recursiveZipperList(a, two));
