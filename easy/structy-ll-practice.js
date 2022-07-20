@@ -17,27 +17,46 @@ c.next = d;
 // A -> B -> C -> D -> NULL
 
 // Iterate through every node of the linked list
-const printLinkedList = (head) => {
+// Example
+/*const printLinkedList = (head) => {
   let current = head;
   while (current !== null) {
     console.log(current.value);
     current = current.next;
   }
-};
+};*/
+
+// Practice Attempt - 1
+/*const printLinkedList = (head) => {
+  let current = head;
+
+  while (current !== null) {
+    console.log(current);
+    current = current.next;
+  }
+};*/
+
+//printLinkedList(a);
 
 // Recursive way to log every node of the linked list
 
-const recursivePrintLinkedList = (head) => {
+/*const recursivePrintLinkedList = (head) => {
   if (head === null) return;
   console.log(head.value);
   recursivePrintLinkedList(head.next);
-};
+};*/
 
-//printLinkedList(a);
+// Practice Attempt - 1
+/*const recursivePrintLinkedList = (head) => {
+  if (head === null) return;
+  console.log(head);
+  recursivePrintLinkedList(head.next);
+};*/
+
 //recursivePrintLinkedList(a);
 
 // Return an array containing all values of the nodes in the linked list through iteration
-const linkedListValues = (head) => {
+/*const linkedListValues = (head) => {
   const values = [];
   let current = head;
   while (current !== null) {
@@ -45,24 +64,50 @@ const linkedListValues = (head) => {
     current = current.next;
   }
   return values;
-};
+};*/
 
-// Return an array containing all values of the nodes in the linked list via recursion
-const showLinkedListValues = (head) => {
-  const values = [];
-  fillValues(head, values);
-  return values;
-};
+//Practice Attempt - 1
+/*const linkedListValues = (head) => {
+  let current = head;
+  const arrayOfNodes = [];
 
-const fillValues = (head, values) => {
-  if (head === null) return;
-  values.push(head.value);
-  fillValues(head.next, values);
-};
+  while (current !== null) {
+    arrayOfNodes.push(current.value);
+    current = current.next;
+  }
 
-//console.log(showLinkedListValues(a));
+  return arrayOfNodes;
+};*/
 
 //console.log(linkedListValues(a));
+
+//Return an array containing all values of the nodes in the linked list via recursion
+// const showLinkedListValues = (head) => {
+//   const values = [];
+//   fillValues(head, values);
+//   return values;
+// };
+
+// const fillValues = (head, values) => {
+//   if (head === null) return;
+//   values.push(head.value);
+//   fillValues(head.next, values);
+// };
+
+// Practice Attempt - 1
+// const showLinkedListValues = (head) => {
+//   let arrayOfNodes = [];
+//   fillValues(head, arrayOfNodes);
+//   return arrayOfNodes;
+// };
+
+// const fillValues = (head, values) => {
+//   if (head === null) return;
+//   values.push(head.value);
+//   return fillValues(head.next, values);
+// };
+
+// console.log(showLinkedListValues(a));
 
 // Sum of values in linked list
 const two = new Node(2);
@@ -223,4 +268,4 @@ const recursiveZipperList = (head1, head2) => {
 };
 
 //console.log(zipperLists(a, two));
-console.log(recursiveZipperList(a, two));
+//console.log(recursiveZipperList(a, two));
