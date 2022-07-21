@@ -53,6 +53,7 @@ const removeNthFromBeg = (head, n) => {
     current = current.next;
     count++;
   }
+  console.log(current);
 
   // If the requested position of the node to be deleted does not exist, return undefined
   if (current == null || current.next == null) return;
@@ -67,4 +68,4 @@ const removeNthFromBeg = (head, n) => {
   return head;
 };
 
-console.log(removeNthFromBeg(one, 1));
+console.log(removeNthFromBeg(one, 2));
