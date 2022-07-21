@@ -5,6 +5,15 @@ const array1 = [
 ];
 
 const array2 = [[9, 3, 4], [11], [42, 100]];
+const tempArray = [0, 3, 4, 6, 9];
+
+// for (const element of tempArray) {
+//   if (element === 9) console.log("hello");
+// }
+
+tempArray.splice(1, 0, 2);
+tempArray.push(10);
+//console.log(tempArray);
 
 // Print all elements of the inner arrays
 
@@ -152,4 +161,4 @@ function bubble(array) {
 
 const arr1 = [234, 43, 55, 63, 5, 6, 235, 547, -5];
 
-console.log(bubble(arr1));
+//console.log(bubble(arr1));
