@@ -6,19 +6,6 @@ const array1 = [
 
 const array2 = [[9, 3, 4], [11], [42, 100]];
 
-// const each = array.forEach((a, b) => {
-//   console.log(`this is a: ${a[0]} and this is b: ${a[1]}`);
-// });
-
-// const sortedArray = array.sort((a, b) => {
-//   if (a[0] === b[0]) {
-//     return a[1] - b[1];
-//   }
-//   return b[0] - a[0];
-// });
-
-//console.log(sortedArray);
-
 // Print all elements of the inner arrays
 
 // Use nested for loops to traverse 2d arrays
@@ -126,4 +113,43 @@ function zipper(array1, array2) {
   return arrayOfPairs;
 }
 
-console.log(zipper(["whisper", "talk", "shout"], ["quiet", "normal", "loud"]));
+//console.log(zipper(["whisper", "talk", "shout"], ["quiet", "normal", "loud"]));
+
+// Bubble Sort Practice
+function bubbleSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length - i - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        const temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }
+    }
+  }
+  console.log(array);
+}
+
+//const arr = [234, 43, 55, 63, 5, 6, 235, 547];
+
+//bubbleSort(arr);
+
+function bubble(array) {
+  // Create a shallow copy of the input array
+  const arr = array.slice();
+
+  // Create initial for loop to track number of times we loop through the array to compare elements
+  for (let i = 0; i < array.length - 1; i++) {
+    // Create nested for loop to compare current and next element and swap if current is greater than next
+    for (let j = 0; j < array.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+
+  return arr;
+}
+
+const arr1 = [234, 43, 55, 63, 5, 6, 235, 547, -5];
+
+console.log(bubble(arr1));
