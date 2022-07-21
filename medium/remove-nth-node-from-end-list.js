@@ -34,4 +34,37 @@ const removeNthFromEnd = (head, n) => {
   return dummy.next;
 };
 
-console.log(removeNthFromEnd(one, 2));
+//console.log(removeNthFromEnd(one, 2));
+
+const removeNthFromBeg = (head, n) => {
+  // If the linked list is empty
+  if (head === null) return;
+
+  let current = head;
+  let count = 1; // Clarify if count should begin at 0 or 1
+
+  // If the head needs to be remove
+  if (n === 0) {
+    head = current.next;
+  }
+
+  // Find the previous node of the node to be deleted
+  while (count < n && current !== null) {
+    current = current.next;
+    count++;
+  }
+
+  // If the requested position of the node to be deleted does not exist, return undefined
+  if (current == null || current.next == null) return;
+
+  // Create variable that holds the node after the node to be deleted
+  let next = current.next.next;
+
+  // Delete the desired node by setting the next of the node before the one to be deleted to the node that comes after the node to be deleted
+  current.next = next;
+
+  // Return the head node to show all nodes except the one that was deleted;
+  return head;
+};
+
+console.log(removeNthFromBeg(one, 1));
