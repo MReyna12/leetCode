@@ -1,12 +1,18 @@
 const numbers = [1, 24, 43, 32, 5];
-const target = 30;
-let closestSum = 0;
+const target = 23;
 
-// Add numbers in array until it reaches the target;
+// Add numbers in array until it reaches the target, if it cannot reach the target then add numbers to get as close as you can to target;
 const calculateClosestSum = (arr, limit) => {
-  for (num of arr) {
-    if (num + closestSum <= limit) {
-      closestSum += num;
+  let closestSum = 0;
+  for (const number of arr) {
+    if (closestSum + number <= limit) {
+      closestSum += number;
+    }
+  }
+
+  for (const num of arr) {
+    if (closestSum < num && num <= limit) {
+      return num;
     }
   }
   return closestSum;
@@ -33,4 +39,4 @@ const formSentence = (arr, target) => {
   return sentence;
 };
 
-console.log(formSentence(wordsArray, wordTarget));
+//console.log(formSentence(wordsArray, wordTarget));
