@@ -141,7 +141,20 @@ const linkedListValues = (head) => {
 //   return fillValues(head.next, values);
 // };
 
-// console.log(showLinkedListValues(a));
+// Practice Attempt -2
+const showLinkedListValues = (head) => {
+  const array = [];
+  fillValues(head, array);
+  return array;
+};
+
+const fillValues = (head, values) => {
+  if (head === null) return;
+  values.push(head.value);
+  return fillValues(head.next, values);
+};
+
+//console.log(showLinkedListValues(a));
 
 // Sum of values in linked list
 const two = new Node(2);
@@ -180,6 +193,20 @@ negOne.next = seven;
 //   return sum;
 // };
 
+// Practice Attempt - 2
+const sumList = (head) => {
+  // Create sum variable
+  let sum = 0;
+  let current = head;
+
+  while (current !== null) {
+    sum += current.value;
+    current = current.next;
+  }
+
+  return sum;
+};
+
 //console.log(sumList(two));
 
 // Sum via recursion
@@ -193,7 +220,13 @@ negOne.next = seven;
 //   return head.value + recursiveSumList(head.next);
 // };
 
-//recursiveSumList(two);
+// Practice Attempt - 1
+const recursiveSumList = (head) => {
+  if (head === null) return 0;
+  return head.value + recursiveSumList(head.next);
+};
+
+//console.log(recursiveSumList(two));
 
 // Find a target value in a linked list
 // const linkedListFind = (head, target) => {
@@ -209,6 +242,20 @@ negOne.next = seven;
 // };
 
 // Practice Attempt - 1
+/*const linkedListFind = (head, target) => {
+  let current = head;
+
+  while (current !== null) {
+    if (current.value === target) {
+      return true;
+    }
+    current = current.next;
+  }
+
+  return false;
+};*/
+
+// Practice Attempt - 2
 const linkedListFind = (head, target) => {
   let current = head;
 
@@ -227,12 +274,20 @@ const linkedListFind = (head, target) => {
 // Find a target value with recursion
 // const recursiveLinkedListFind = (head, target) => {
 //   if (head === null) return false;
-//   if (head.val === target) return true;
+//   if (head.value === target) return true;
 
 //   return recursiveLinkedListFind(head.next, target);
 // };
 
 // Practice Attempt - 1
+/*const recursiveLinkedListFind = (head, target) => {
+  if (head === null) return false;
+  if (head.value === target) return true;
+
+  return recursiveLinkedListFind(head.next, target);
+};*/
+
+// Practice Attempt - 2
 const recursiveLinkedListFind = (head, target) => {
   if (head === null) return false;
   if (head.value === target) return true;
