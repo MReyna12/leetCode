@@ -316,7 +316,7 @@ const recursiveLinkedListFind = (head, target) => {
 // };
 
 // Practice Attempt - 1
-const getNodeValue = (head, index) => {
+/*const getNodeValue = (head, index) => {
   let current = head;
   let counter = 0;
 
@@ -326,6 +326,23 @@ const getNodeValue = (head, index) => {
     }
     current = current.next;
     counter++;
+  }
+
+  return null;
+};*/
+
+// Practice Attempt - 2
+const getNodeValue = (head, index) => {
+  // Create current variable and a counter; counter will help determine the index and return the node value at said index (assuming the index exists in the list)
+  let current = head;
+  let count = 0;
+
+  while (current !== null) {
+    if (count === index) {
+      return current.value;
+    }
+    current = current.next;
+    count++;
   }
 
   return null;
@@ -342,12 +359,12 @@ const getNodeValue = (head, index) => {
 // };
 
 // Practice Attempt - 1
-const recursiveGetNodeValue = (head, index) => {
+/*const recursiveGetNodeValue = (head, index) => {
   if (head === null) return null;
   if (index === 0) return head.value;
 
   return recursiveGetNodeValue(head.next, index - 1);
-};
+};*/
 
 //console.log(recursiveGetNodeValue(a, 2));
 
