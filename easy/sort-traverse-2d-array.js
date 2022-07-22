@@ -25,6 +25,13 @@ for (let i = 0; i < array1.length; i++) {
   }
 }
 
+for (let i = 0; i < array1.length; i++) {
+  let subarray = array1[i];
+  for (let j = 0; j < subarray.length; j++) {
+    //console.log(subarray[j]);
+  }
+}
+
 function print2d(array) {
   // Create the first for loop that will loop through each array within the array
   for (let i = 0; i < array.length; i++) {
