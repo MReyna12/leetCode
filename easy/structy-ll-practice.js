@@ -366,6 +366,14 @@ const getNodeValue = (head, index) => {
   return recursiveGetNodeValue(head.next, index - 1);
 };*/
 
+// Practice Attempt - 2
+const recursiveGetNodeValue = (head, index) => {
+  if (head === null) return null;
+  if (index === 0) return head.value;
+
+  return recursiveGetNodeValue(head.next, index - 1);
+};
+
 //console.log(recursiveGetNodeValue(a, 2));
 
 // Reverse linked list
@@ -384,7 +392,7 @@ const getNodeValue = (head, index) => {
 // };
 
 // Practice Attempt - 1
-const reverseList = (head) => {
+/*const reverseList = (head) => {
   let current = head;
   let previous = null;
 
@@ -395,6 +403,25 @@ const reverseList = (head) => {
     current = next;
   }
 
+  return previous;
+};*/
+
+// Practice Attempt - 2
+const reverseList = (head) => {
+  // Create current and previous pointers
+  let current = head;
+  let previous = null;
+
+  // Create while loop that runs while current is not equal to null
+  while (current !== null) {
+    const next = current.next;
+    // Flip the direction
+    current.next = previous;
+    previous = current;
+    current = next;
+  }
+
+  // Return previous as this node is now our head
   return previous;
 };
 
@@ -409,6 +436,14 @@ const reverseList = (head) => {
 // };
 
 // Practice Attempt - 1
+/*const recursiveReverseList = (head, prev = null) => {
+  if (head === null) return prev;
+  let next = head.next;
+  head.next = prev;
+  return recursiveReverseList(next, head);
+};*/
+
+// Practice Attempt - 2
 const recursiveReverseList = (head, prev = null) => {
   if (head === null) return prev;
   let next = head.next;
