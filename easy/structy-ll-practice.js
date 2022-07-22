@@ -36,6 +36,18 @@ c.next = d;
   }
 };*/
 
+// Practice Attempt - 2
+const printLinkedList = (head) => {
+  if (head === null) return null;
+
+  let current = head;
+
+  while (current) {
+    console.log(current);
+    current = current.next;
+  }
+};
+
 //printLinkedList(a);
 
 // Recursive way to log every node of the linked list
@@ -53,7 +65,14 @@ c.next = d;
   recursivePrintLinkedList(head.next);
 };*/
 
-//recursivePrintLinkedList(a);
+// Practice Attempt - 2
+const recursivePrintLinkedList = (head) => {
+  if (head === null) return;
+  //console.log(head);
+  return recursivePrintLinkedList(head.next);
+};
+
+//console.log(recursivePrintLinkedList(a));
 
 // Return an array containing all values of the nodes in the linked list through iteration
 /*const linkedListValues = (head) => {
@@ -78,6 +97,21 @@ c.next = d;
 
   return arrayOfNodes;
 };*/
+
+// Practice Attempt - 2
+const linkedListValues = (head) => {
+  // Create array
+  let array = [];
+
+  let current = head;
+  // Create while loop
+  while (current !== null) {
+    array.push(current.value);
+    current = current.next;
+  }
+
+  return array;
+};
 
 //console.log(linkedListValues(a));
 
