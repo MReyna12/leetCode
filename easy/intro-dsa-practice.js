@@ -155,14 +155,16 @@ function mergeSort(array) {
   // Step Three (Combine): Merge the sorted sublists created in the previous step
 
   // Takes 0(n log n) time ) - multiple split time and merge time to run
-
+  console.log(`this is the array: ${array}`);
   if (array.length <= 1) return array;
 
   // Divide array into two
   let dividedArray = split(array);
   // Recursively sort the subarrays until we have single element arrays or empty arrays
   let left = mergeSort(dividedArray[0]);
+  console.log(`this is left: ${left}`);
   let right = mergeSort(dividedArray[1]);
+  console.log(`this is the right: ${right}`);
 
   return merge(left, right);
 }
@@ -172,15 +174,17 @@ function split(array) {
   // Returns two subarrays - left and right
   // Takes overall O(log n) time
 
-  let midpoint = array.length / 2;
+  let midpoint = Math.floor(array.length / 2);
   const left = array.slice(0, midpoint);
   const right = array.slice(midpoint);
-  console.log(left, right);
+  //console.log(`this is the left array: ${left}`);
+  //console.log(`this is the right array: ${right}`);
 
   return [left, right];
 }
 
 function merge(left, right) {
+  //console.log(`this is left: ${left} and this is the right: ${right}`);
   // Merges two arrays, sorting them in the process
   // Returns a new merged array
   // Runs in overall 0(n) time (liner time - takes n number of merge steps)
