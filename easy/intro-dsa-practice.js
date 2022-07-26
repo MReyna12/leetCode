@@ -98,6 +98,32 @@ class LinkedList {
     }
   }
 
+  remove(key) {
+    // Removes node containing data that matches the key
+    // Returns the node or null if key doesn't exist in the list
+    // Worst case scenario is 0(n) time
+    let current = this.head;
+    let previous = null;
+    let found = false;
+
+    while (current && !found) {
+      if (current.data === key && current === this.head) {
+        found = true;
+        this.head = current.next;
+      }
+      if (current.data === key) {
+        found = true;
+        let next = current.next;
+        previous.next = next;
+        console.log(current);
+      } else {
+        previous = current;
+        current = current.next;
+      }
+    }
+    return current;
+  }
+
   printListNodes() {
     let current = this.head;
 
@@ -113,7 +139,8 @@ linkedList.addNode(30);
 linkedList.addNode(20);
 linkedList.addNode(10);
 linkedList.insert(40, 3);
+linkedList.remove(30);
 //console.log(linkedList.search(30));
 //console.log(linkedList.isEmpty());
 //console.log(linkedList.size());
-linkedList.printListNodes();
+//linkedList.printListNodes();
