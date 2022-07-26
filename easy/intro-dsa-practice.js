@@ -115,7 +115,6 @@ class LinkedList {
         found = true;
         let next = current.next;
         previous.next = next;
-        console.log(current);
       } else {
         previous = current;
         current = current.next;
@@ -144,3 +143,23 @@ linkedList.remove(30);
 //console.log(linkedList.isEmpty());
 //console.log(linkedList.size());
 //linkedList.printListNodes();
+
+// Divide and Conquer - Recursively breaking down problem into subparts
+// Merge Sort
+function mergeSort(array) {
+  // Sorts an array in ascending order
+  // Create and return a new sorted array
+
+  // Step one (Divide): Find the midpoint of the array and divide into subarrays
+  // Step Two (Conquer): Recursively sort the subarrays created in the previous step
+  // Step Three (Combine): Merge the sorted sublists created in the previous step
+
+  if (array.length <= 1) return array;
+
+  // Divide array into two
+  let leftHalf = split(array);
+  let rightHalf = split(array);
+  // Recursively sort the subarrays
+  let left = mergeSort(leftHalf);
+  let right = mergeSort(rightHalf);
+}
