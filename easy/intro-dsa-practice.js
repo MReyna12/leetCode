@@ -155,16 +155,16 @@ function mergeSort(array) {
   // Step Three (Combine): Merge the sorted sublists created in the previous step
 
   // Takes 0(n log n) time ) - multiple split time and merge time to run
-  console.log(`this is the array: ${array}`);
+  //console.log(`this is the array: ${array}`);
   if (array.length <= 1) return array;
 
   // Divide array into two
   let dividedArray = split(array);
   // Recursively sort the subarrays until we have single element arrays or empty arrays
   let left = mergeSort(dividedArray[0]);
-  console.log(`this is left: ${left}`);
+  //console.log(`this is left: ${left}`);
   let right = mergeSort(dividedArray[1]);
-  console.log(`this is the right: ${right}`);
+  //console.log(`this is the right: ${right}`);
 
   return merge(left, right);
 }
@@ -220,4 +220,52 @@ function merge(left, right) {
 
 let unsortedArray = [23, 3352, 1, 4, 222, 21, 5, 20, 35, 200];
 const something = mergeSort(unsortedArray);
-console.log(something);
+//console.log(something);
+
+// Merge Sort in One Function
+function mergeSort2(array) {
+  //console.log(array);
+  if (array.length <= 1) return array;
+
+  // Get the middle point of the array and split in half; save those halves into two variables (left/right)
+  let mid = Math.floor(array.length / 2);
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
+  console.log(`This is left: ${left}`);
+  // The arrays must continue to be split in half until there is one value for left and one for right,
+  // so we call mergeSort2 again
+  const leftValues = mergeSort2(left);
+  const rightValues = mergeSort2(right);
+  console.log(`this is leftValues: ${leftValues}`);
+
+  // Create an empty array for sorted values to be put in and a left/right index to target the split values to be compare
+  let sortedArray = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  // While loop to compare the values in left/right
+  while (leftIndex < leftValues.length && rightIndex < rightValues.length) {
+    if (leftValues[leftIndex] < rightValues[rightIndex]) {
+      sortedArray.push(leftValues[leftIndex]);
+      leftIndex += 1;
+    } else {
+      sortedArray.push(rightValues[rightIndex]);
+      rightIndex += 1;
+    }
+  }
+
+  while (leftIndex < leftValues.length) {
+    sortedArray.push(leftValues[leftIndex]);
+    leftIndex += 1;
+  }
+
+  while (rightIndex < rightValues.length) {
+    sortedArray.push(rightValues[rightIndex]);
+    rightIndex += 1;
+  }
+
+  return sortedArray;
+}
+
+const sortedNumbers = mergeSort2(unsortedArray);
+console.log(sortedNumbers);
