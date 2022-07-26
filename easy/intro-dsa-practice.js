@@ -157,9 +157,59 @@ function mergeSort(array) {
   if (array.length <= 1) return array;
 
   // Divide array into two
-  let leftHalf = split(array);
-  let rightHalf = split(array);
-  // Recursively sort the subarrays
-  let left = mergeSort(leftHalf);
-  let right = mergeSort(rightHalf);
+  let dividedArray = split(array);
+  // Recursively sort the subarrays until we have single element arrays or empty arrays
+  let left = mergeSort(dividedArray[0]);
+  let right = mergeSort(dividedArray[1]);
+
+  return merge(left, right);
 }
+
+function split(array) {
+  // Divide the unsorted array at midpoint into sublists
+  // Returns two subarrays - left and right
+
+  let midpoint = array.length / 2;
+  const left = array.slice(0, midpoint);
+  const right = array.slice(midpoint);
+  console.log(left, right);
+
+  return [left, right];
+}
+
+function merge(left, right) {
+  // Merges two arrays, sorting them in the process
+  // Returns a new merged array
+
+  let sortedArray = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      sortedArray.push(left[i]);
+      i += 1;
+    } else {
+      sortedArray.push(right[j]);
+      j += 1;
+    }
+  }
+
+  // If right array is shorter than the left
+  while (i < left.length) {
+    sortedArray.push(left[i]);
+    i += 1;
+  }
+
+  // If left array is shorter than the right
+  while (j < right.length) {
+    sortedArray.push(right[j]);
+    j += 1;
+  }
+
+  return sortedArray;
+}
+
+let unsortedArray = [23, 3352, 1, 4, 222, 21, 5, 20, 35, 200];
+const something = mergeSort(unsortedArray);
+console.log(something);
