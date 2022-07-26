@@ -154,6 +154,8 @@ function mergeSort(array) {
   // Step Two (Conquer): Recursively sort the subarrays created in the previous step
   // Step Three (Combine): Merge the sorted sublists created in the previous step
 
+  // Takes 0(n log n) time ) - multiple split time and merge time to run
+
   if (array.length <= 1) return array;
 
   // Divide array into two
@@ -168,6 +170,7 @@ function mergeSort(array) {
 function split(array) {
   // Divide the unsorted array at midpoint into sublists
   // Returns two subarrays - left and right
+  // Takes overall O(log n) time
 
   let midpoint = array.length / 2;
   const left = array.slice(0, midpoint);
@@ -180,6 +183,7 @@ function split(array) {
 function merge(left, right) {
   // Merges two arrays, sorting them in the process
   // Returns a new merged array
+  // Runs in overall 0(n) time (liner time - takes n number of merge steps)
 
   let sortedArray = [];
   let i = 0;
