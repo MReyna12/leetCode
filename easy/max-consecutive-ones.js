@@ -45,3 +45,19 @@ const findMaxConsecutiveOnes = (nums) => {
   const result = Math.max(counter, max);
   return result;
 };
+
+const findMaxConsecutiveOnes = (nums) => {
+  let counter = 0;
+  let result = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      counter = 0;
+    } else {
+      counter++;
+      result = Math.max(result, counter);
+    }
+  }
+
+  return result;
+};
