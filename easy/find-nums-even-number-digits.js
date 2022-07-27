@@ -16,6 +16,7 @@ function findNumbers(nums) {
   return counter;
 }
 
+// Practice Attempt - 1
 const findNumbers = (nums) => {
   let count = 0;
 

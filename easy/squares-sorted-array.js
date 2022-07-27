@@ -1,7 +1,9 @@
 // P: Parameter is an array of numbers in non-decreasing order
 // R: Square each number in the array and sort the new numbers in non-decreasing order
 // E: [1, 2] - [1, 4]
-// P: Let's start by squaring each number within the array; merge sort the newly square array
+// P: Create a new array with a length equal to the same of the input array; create two pointers, one that starts at the head and one that starts at the tail; create two variables, one holds squared head value and the other the squared tail value;
+// compare the two squared values, with the greater value being placed in the last index position (which is what i in the for loop will represent); decrease the i variable in the for loop; decrease the tail pointer; head pointer remains same unless its
+// value is added to the new array; return the new array
 
 /*const sortedSquares = (nums) => {
   // Create an array to hold the squared values
@@ -88,4 +90,33 @@ const sortedSquares = (nums) => {
   return sorted;
 };
 
-sortedSquares([-4, -1, 0, 3, 10, 20]);
+//sortedSquares([-4, -1, 0, 3, 10, 20]);
+
+// Practice Attempt - 1
+// Two pointers method
+
+const sortedSquares = (nums) => {
+  // New array with same length as input array - do not want to alter the array given in the argument
+  const sortedArray = new Array(nums.length);
+
+  // Two pointers
+  let head = 0;
+  let tail = sortedArray.length - 1; // Starts at the last index position of the new array
+
+  for (let i = sortedArray.length - 1; i >= 0; i--) {
+    // Create two variables to hold squared values that will be compared
+    const squaredHead = Math.pow(nums[head], 2);
+    const squaredTail = Math.pow(nums[tail], 2);
+
+    // Compare squared values, with greater value being put into the current index position represented by the i variable
+    if (squaredHead > squaredTail) {
+      sortedArray[i] = squaredHead;
+      head++;
+    } else {
+      sortedArray[i] = squaredTail;
+      tail--;
+    }
+  }
+
+  return sortedArray;
+};
