@@ -268,4 +268,55 @@ function mergeSort2(array) {
 }
 
 const sortedNumbers = mergeSort2(unsortedArray);
-console.log(sortedNumbers);
+//console.log(sortedNumbers);
+
+// Merge Sort
+function mergeSort3(array) {
+  // Sorts an array in ascending order
+  // Create and return a new sorted array
+
+  // Step one (Divide): Find the midpoint of the array and divide into subarrays
+  // Step Two (Conquer): Recursively sort the subarrays created in the previous step
+  // Step Three (Combine): Merge the sorted sublists created in the previous step
+
+  if (array.length <= 1) return array;
+
+  const mid = Math.floor(array.length / 2);
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
+
+  // Continue breaking the the arrays down until one value remains through recursion
+  const leftValues = mergeSort3(left);
+  const rightValues = mergeSort3(right);
+
+  // Sort and combine subarrays into a sorted array
+  let sortedArray = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < leftValues.length && rightIndex < rightValues.length) {
+    // Compare the left values at the applicable index position to the right values
+    if (leftValues[leftIndex] < rightValues[rightIndex]) {
+      sortedArray.push(leftValues[leftIndex]);
+      leftIndex++;
+    } else {
+      sortedArray.push(rightValues[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  while (leftIndex < leftValues.length) {
+    sortedArray.push(leftValues[leftIndex]);
+    leftIndex++;
+  }
+
+  while (rightIndex < rightValues.length) {
+    sortedArray.push(rightValues[rightIndex]);
+    rightIndex++;
+  }
+
+  return sortedArray;
+}
+
+const mergeandsort = mergeSort3(unsortedArray);
+//console.log(mergeandsort);
