@@ -196,6 +196,30 @@ class LinkedList1 {
   }
 
   // Insert at a specific index position
+  insert(data, index) {
+    // Insert a new node containing data at index position (treating node positioning as zero based)
+    if (index === 0) {
+      this.addNode(data);
+    }
+
+    if (index > 0) {
+      const node = new Node1(data);
+
+      let position = index;
+      let current = this.head;
+
+      while (position > 1) {
+        current = current.next;
+        position -= 1;
+      }
+
+      let previous = current;
+      let next = current.next;
+
+      previous.next = node;
+      node.next = next;
+    }
+  }
 
   // Remove a node based on a value given
   remove(key) {
