@@ -320,3 +320,51 @@ function mergeSort3(array) {
 
 const mergeandsort = mergeSort3(unsortedArray);
 //console.log(mergeandsort);
+
+// Practice Attempt - 1
+const mergeSort4 = (array) => {
+  if (array.length <= 1) return array;
+  // Find the midpoint of the input array
+  const mid = Math.floor(array.length / 2);
+  // Assign the first half to a left variable and the second half to a right variable
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
+  // Recursively continue to break down the subarrays until one value remains
+  const leftValues = mergeSort4(left);
+  const rightValues = mergeSort4(right);
+  // Create: 1. an empty array the length of the input array and 2. three indices - one for leftValues, one for rightValues, and one to determine the position the lesser value will go in the new array
+  let sortedArray = new Array(array.length);
+  let leftIndex = 0;
+  let rightIndex = 0;
+  let sortedIndex = 0;
+
+  while (leftIndex < leftValues.length && rightIndex < rightValues.length) {
+    if (leftValues[leftIndex] < rightValues[rightIndex]) {
+      sortedArray[sortedIndex] = leftValues[leftIndex];
+      leftIndex += 1;
+    } else {
+      sortedArray[sortedIndex] = rightValues[rightIndex];
+      rightIndex += 1;
+    }
+    sortedIndex += 1;
+  }
+
+  // Values still left in leftValues, then this loop runs
+  while (leftIndex < leftValues.length) {
+    sortedArray[sortedIndex] = leftValues[leftIndex];
+    leftIndex += 1;
+    sortedIndex += 1;
+  }
+
+  // Value still left in rightValues, then this loop runs
+  while (rightIndex < rightValues.length) {
+    sortedArray[sortedIndex] = rightValues[rightIndex];
+    rightIndex += 1;
+    sortedIndex += 1;
+  }
+
+  return sortedArray;
+};
+
+const mergeit = mergeSort4(unsortedArray);
+console.log(mergeit);
