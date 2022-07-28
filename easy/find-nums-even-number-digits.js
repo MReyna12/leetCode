@@ -29,3 +29,19 @@ const findNumbers = (nums) => {
 
   return count;
 };
+
+// Practice Attempt - 2
+const findNumbers = (nums) => {
+  // Create counter to hold total number of even number digits
+  let count = 0;
+
+  // for loop that will convert each integer into a string, determine its length, and determine if it is even or odd
+  for (let i = 0; i < nums.length; i++) {
+    const stringLength = `${nums[i]}`.length;
+    if (stringLength % 2 === 0) {
+      count += 1;
+    }
+  }
+
+  return count;
+};
