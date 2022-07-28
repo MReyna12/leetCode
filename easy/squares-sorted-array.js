@@ -95,7 +95,7 @@ const sortedSquares = (nums) => {
 // Practice Attempt - 1
 // Two pointers method
 
-const sortedSquares = (nums) => {
+const sortedSquares1 = (nums) => {
   // New array with same length as input array - do not want to alter the array given in the argument
   const sortedArray = new Array(nums.length);
 
@@ -115,6 +115,33 @@ const sortedSquares = (nums) => {
     } else {
       sortedArray[i] = squaredTail;
       tail--;
+    }
+  }
+
+  return sortedArray;
+};
+
+// Practice Attempt - 2
+// Two pointers method
+const sortedSquares2 = (nums) => {
+  // Create my new array the size of nums.length -- this array will hold my sorted values
+  let sortedArray = new Array(nums.length);
+
+  // Create two pointers, one to start at the head and the other the tail
+  let head = 0;
+  let tail = sortedArray.length - 1;
+
+  for (let i = sortedArray.length - 1; i >= 0; i--) {
+    // Create two variables that will hold the squared values to be compared
+    const squaredHead = Math.pow(nums[head], 2);
+    const squaredTail = Math.pow(nums[tail], 2);
+    // Conditional to compare two squared values, if head greater, then add squaredHead to sortedArray and increase head by 1; if tail greater, then add squaredTail to sortedArray and decrease tail by 1
+    if (squaredHead > squaredTail) {
+      sortedArray[i] = squaredHead;
+      head += 1;
+    } else {
+      sortedArray[i] = squaredTail;
+      tail -= 1;
     }
   }
 
