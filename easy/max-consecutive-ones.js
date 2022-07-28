@@ -61,3 +61,24 @@ const findMaxConsecutiveOnes = (nums) => {
 
   return result;
 };
+
+// Practice Attempt - 2
+const findMaxConsecutiveOnes = (nums) => {
+  if (nums.length === 1 && nums[0] === 1) return 1;
+
+  // Create my counter that increases each time there are consecutive 1s; will reset upon hitting a 0
+  // Create a result variable that holds counter value assuming that counter is greater than result
+  let counter = 0;
+  let result = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      counter = 0;
+    } else {
+      counter += 1;
+      result = Math.max(counter, result);
+    }
+  }
+
+  return result;
+};
