@@ -15,5 +15,3 @@ const removeDuplicates = (nums) => {
 
   return left + 1;
 };
-
-removeDuplicates([1, 1, 2]);
