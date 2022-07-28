@@ -159,19 +159,82 @@ class LinkedList1 {
   }
 
   // Empty
+  isEmpty() {
+    return this.head === null;
+  }
+  // Returns the number of nodes in the list
+  size() {
+    let current = this.head;
+    let count = 0;
 
-  // Size
+    while (current) {
+      current = current.next;
+      count += 1;
+    }
 
+    return count;
+  }
   // Add a node
+  addNode(data) {
+    let node = new Node1(data);
+    node.next = this.head;
+    this.head = node;
+  }
 
   // Search for a node based on a value given
+  search(key) {
+    let current = this.head;
+
+    while (current) {
+      if (current.data === key) {
+        return current;
+      } else {
+        current = current.next;
+      }
+    }
+    return null;
+  }
 
   // Insert at a specific index position
 
   // Remove a node based on a value given
+  remove(key) {
+    let current = this.head;
+    let previous = null;
+    let found = false;
+
+    while (current && !found) {
+      if (current.data === key && current === this.head) {
+        found = true;
+        this.head = current.next;
+      }
+      if (current.data === key) {
+        found = true;
+        let next = current.next;
+        previous.next = next;
+      } else {
+        previous = current;
+        current = current.next;
+      }
+    }
+    return current;
+  }
 
   // Print all nodes in list
+  printAllNodes() {
+    let current = this.head;
+
+    while (current) {
+      console.log(current);
+      current = current.next;
+    }
+  }
 }
+
+const linkedList1 = new LinkedList1();
+linkedList1.addNode(30);
+linkedList1.addNode(20);
+linkedList1.addNode(10);
 
 // Divide and Conquer - Recursively breaking down problem into subparts
 // Merge Sort
