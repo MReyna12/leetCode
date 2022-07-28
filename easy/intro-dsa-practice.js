@@ -144,6 +144,35 @@ linkedList.remove(30);
 //console.log(linkedList.size());
 //linkedList.printListNodes();
 
+// Practice Attempt - 1
+class Node1 {
+  constructor(data, next) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+class LinkedList1 {
+  // Create head via constructor
+  constructor() {
+    this.head = null;
+  }
+
+  // Empty
+
+  // Size
+
+  // Add a node
+
+  // Search for a node based on a value given
+
+  // Insert at a specific index position
+
+  // Remove a node based on a value given
+
+  // Print all nodes in list
+}
+
 // Divide and Conquer - Recursively breaking down problem into subparts
 // Merge Sort
 function mergeSort(array) {
