@@ -31,3 +31,19 @@ const checkIfExist1 = (arr) => {
 
   return false;
 };
+
+const checkIfExist3 = (arr) => {
+  // Create object to hold keys
+  let object = {};
+
+  // Use for loop + conditional to check if key exists, if not set value to anything as we are not check values
+  for (const num of arr) {
+    if (object[num * 2] || object[num / 2]) {
+      return true;
+    }
+    object[num] = true;
+    console.log(object);
+  }
+
+  return false;
+};
