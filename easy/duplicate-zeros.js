@@ -54,3 +54,22 @@ const duplicateZeros1 = (arr) => {
     }
   }
 };
+
+// Practice Attempt - 2
+
+// P: integer array
+// R: nothing; however, the result should be to modify the input array so that it includes duplicate instances of 0s. The length of the array does NOT increase
+// E: [0, 1, 2, 3, 0] // [0, 0, 1, 2, 3]
+// P:
+
+const duplicateZeros2 = (arr) => {
+  // Two pointers using two for loops
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      for (let j = arr.length - 1; j > i; j--) {
+        arr[j] = arr[j - 1];
+      }
+      i++;
+    }
+  }
+};
