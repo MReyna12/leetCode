@@ -82,3 +82,29 @@ const findMaxConsecutiveOnes = (nums) => {
 
   return result;
 };
+
+// Practice Attempt - 3
+// P: An array with binary integers
+// R: Return value is an integer and should be the maximum number of consecutive 1s in the array
+// E: [1, 1, 1, 0, 1, 1] // 3
+// P: Create two counters; one counter will increase each time an element is equal to one so long as the next value is not a zero; if zero, said counter resets; the second counter will hold the max of itself and the counter;
+// for loop will be used to traverse each value of the array; if element === 0 then reset counter; otherwise increase counter and check which counter is the max value; return the second counter
+
+const findMaxConsecutiveOnes = (nums) => {
+  // Two counters
+  let count = 0;
+  let result = 0;
+
+  // For loop to traverse array
+  for (let i = 0; i < nums.length; i++) {
+    // Conditional to determine what happens if value is 0 or 1
+    if (nums[i] === 0) {
+      count = 0;
+    } else {
+      count += 1;
+      result = Math.max(count, result);
+    }
+  }
+
+  return result;
+};
