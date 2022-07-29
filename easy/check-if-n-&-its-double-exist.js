@@ -1,7 +1,7 @@
 // P: Array of integers
 // R: True if there exists two integers N and M such that N is double of M
 // E: [10, 2, 5, 3] - true (5 * 2 = 10)
-// P: Create a hash table with elements and their multiplied values and check to see if number exists in the table already via loop/conditional
+// P: Create an empty object; use a for loop and create keys with the current value in the array multiplied by 2 and divided by 2; check if the key already exists, if so return true; otherwise if true never returned then return false
 
 const checkIfExist = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -9,6 +9,23 @@ const checkIfExist = (arr) => {
       if (arr[i] * 2 === arr[j] || arr[i] / 2 === arr[j]) {
         return true;
       }
+    }
+  }
+
+  return false;
+};
+
+const checkIfExist1 = (arr) => {
+  const valueCheckingTable = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const currentValue = arr[i];
+
+    if (valueCheckingTable[currentValue] !== undefined) {
+      return true;
+    } else {
+      valueCheckingTable[currentValue * 2] = currentValue;
+      valueCheckingTable[currentValue / 2] = currentValue;
     }
   }
 
