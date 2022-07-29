@@ -24,3 +24,43 @@ function removeElement(nums, val) {
   // Head is only increased when an element of the array does not equal the val argument, so we return this variable
   return head;
 }
+
+// Practice Attempt - 1
+
+// P: An array of integers and a variable equal to an integer; all instances of said variable should be "removed" from the array
+// R: Return total number of elements remaining after "removal"; does not matter what remains after the total number of elements not equal to the integer variable; may not use another array
+// E: [3, 2, 2, 3] // 2 [2, 2, 3, 3]
+// P: Use two pointers - one starting at index 0 and the other at array.length; check if value at index 0 is equal to integer variable, if so, then swap element at index 0 with element at last index, the last index is then decreased; however
+// the pointer at index 0 does not yet shift, as we need to check if the swapped values were equal to each other, if so it will get swapped with another element; as soon as we confirm that the swapped element is not equal to the integer variable,
+// then the beginning pointer is shifted forward
+
+const removeElement = (nums, val) => {
+  let k = 0;
+  let tail = nums.length;
+
+  while (k < tail) {
+    if (nums[k] === val) {
+      nums[k] = nums[tail - 1];
+      tail--;
+    } else {
+      k++;
+    }
+  }
+
+  return k;
+};
+
+// P: Use two pointers, one outside the loop and the other created with the for loop; outside pointer increased only if array[insideLoopIndex] !== val; use array[outsideIndex] to track values that do equal val and swap them with the values that do not
+
+const removeElement = (nums, val) => {
+  let initialIndex = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[initialIndex] = nums[i];
+      initialIndex++;
+    }
+  }
+
+  return initialIndex;
+};
