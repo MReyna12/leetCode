@@ -22,3 +22,26 @@ const reverseList = function (head) {
 
   return previous;
 };
+
+// Practice Attempt - 1
+
+// P: Head of a singly linked list
+// R: Return a reversed linked list
+// E: 1 -> 2 -> 3 // 3 -> 2 -> 1
+// P: Need three pointers - previous which is set to null, current which is set to the head/current node, and a node.next value; flip the direction of the arrows and shift down one each time
+
+const reverseList1 = (head) => {
+  // Previous and current pointers
+  let previous = null;
+  let current = head;
+
+  // While loop to run until arrows are flipped
+  while (current !== null) {
+    const next = current.next;
+    current.next = previous; // Flips arrow
+    previous = current;
+    current = next;
+  }
+
+  return previous;
+};
