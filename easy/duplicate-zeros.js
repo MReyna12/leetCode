@@ -93,3 +93,19 @@ const duplicateZeros3 = (arr) => {
     }
   }
 };
+
+// Practice Attempt - 1
+
+const duplicateZeros4 = (arr) => {
+  // Create first for loop and a conditional to check the array for elements equal to zero
+  for (let i = 0; i < arr.length; i++) {
+    // Conditional to determine if the second for loop needs to run to shift each element over one to the right
+    if (arr[i] === 0) {
+      for (let j = arr.length - 1; j > i; j--) {
+        arr[j] = arr[j - 1];
+      }
+      // Since we shifted values, we need to increment i one more time or else when it increments by 1 the next value will always be zero
+      i++;
+    }
+  }
+};
