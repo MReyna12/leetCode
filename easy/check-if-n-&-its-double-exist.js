@@ -47,3 +47,58 @@ const checkIfExist3 = (arr) => {
 
   return false;
 };
+
+// Practice Attempt - 1
+
+// P: Array of integers (at least 2)
+// R: True / False - true if there exists two integers N and M such that N is double of M (N = 2 * M), false otherwise
+// E: [10, 2, 5, 3] // True (5 * 2 = 10)
+// P: Create an empty object; use a for loop to create keys that will hold the current values in the array multiplied by 2 and divided by 2; if a key already exists then return true
+
+const checkIfExist4 = (arr) => {
+  let object = {};
+
+  for (const num of arr) {
+    if (object[num * 2] || object[num / 2]) {
+      return true;
+    } else {
+      object[num] = true;
+    }
+  }
+
+  return false;
+};
+
+const checkIfExist5 = (arr) => {
+  // Create an object that will first check if the integer in the array * 2 or / 2 exists as a key, if not, then add the integer to the object; this loops continues and checks the same for each integer; if true not returned then doesn't exist and false is returned
+  let object = {};
+
+  // For loop and conditional to perform key check
+  for (const num of arr) {
+    if (object[num * 2] || object[num / 2]) {
+      return true;
+    } else {
+      object[num] = true;
+    }
+  }
+
+  return false;
+};
+
+const checkIfExists6 = (arr) => {
+  // Create object
+  let object = {};
+
+  // For loop to check if value is undefined, if so, then add integer * 2 and integer // 2 to object; otherwise true
+  for (let i = 0; i < arr.length; i++) {
+    let currentValue = arr[i];
+
+    if (object[currentValue] !== undefined) {
+      return true;
+    } else {
+      object[currentValue * 2] = true;
+      object[currentValue / 2] = true;
+    }
+  }
+  return false;
+};
