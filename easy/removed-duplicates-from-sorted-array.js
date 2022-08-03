@@ -40,7 +40,7 @@ const removeDuplicates1 = (nums) => {
 // P: Array of integers sorted in non-decreasing order
 // R:
 // E:
-// P:
+// P: Create a left pointer that is only increased when nums[left] !== nums[i]; nums[left] holds the value we want to swap out; run a for loop that starts at 1 and compare nums[left] to nums[i]; if not equal then swap left + 1 with nums[i] and increase left by 1;
 
 const removeDuplicates2 = (nums) => {
   let left = 0;
