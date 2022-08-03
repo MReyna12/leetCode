@@ -64,3 +64,24 @@ const removeElement = (nums, val) => {
 
   return initialIndex;
 };
+
+// Practice Attempt - 2
+
+// P: Two parameters: array of integers between 0 and 50 (inclusive) and a value which carries an integer between 0 and 100 (inclusive)
+// R: Return the number of integers not equal to val; the input array must also not include the integer stored in the value variable within the first k elements (aka number of integers not equal to val)
+// E: [0, 1, 2, 2, 3, 4], 2 // 4 [0, 1, 3, 4, 2, 2]
+// P: two pointer
+
+const removeElement2 = (nums, val) => {
+  if (nums.length <= 0) return 0;
+  let initialIndex = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[initialIndex] = nums[i];
+      initialIndex++;
+    }
+  }
+
+  return initialIndex;
+};
