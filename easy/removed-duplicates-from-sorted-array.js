@@ -34,3 +34,23 @@ const removeDuplicates1 = (nums) => {
   }
   return left + 1;
 };
+
+// Practice Attempt - 2
+
+// P: Array of integers sorted in non-decreasing order
+// R:
+// E:
+// P:
+
+const removeDuplicates2 = (nums) => {
+  let left = 0;
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[left] !== nums[i]) {
+      nums[left + 1] = nums[i];
+      left++;
+    }
+  }
+
+  return left + 1;
+};
