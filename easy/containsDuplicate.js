@@ -70,3 +70,44 @@ function containsDuplicate(nums) {
   }
   return false;
 }
+
+// Practice Attempt - 1
+
+// P: array of integers
+// R: True if any value appears at least twice; false otherwise
+// E: [0, 1, 1, 2] // True; [0, 1, 2, 3] // False
+// P: Create an empty object; check to see if the value in the array exists in the object, if it does return true, if it does not add the array element as the key and its value shall be 1.
+
+const containsDuplicate = (nums) => {
+  // Hash table
+  let object = {};
+
+  // Loop through array to add key/values to object
+  for (const num of nums) {
+    if (object[num]) {
+      return true;
+    } else {
+      object[num] = 1;
+    }
+  }
+
+  return false;
+};
+
+function containsDuplicate(nums) {
+  // Create object that array elements will be added to
+  let object = {};
+
+  // For loop to check if elements exist in the object as a key, if so, return true; otherwise set value of key to 1; if true never returned then return false
+  for (const num of nums) {
+    if (object[num]) {
+      return true;
+    } else {
+      object[num] = 1;
+    }
+  }
+
+  return false;
+}
+
+containsDuplicate([1, 2, 3, 1]);
