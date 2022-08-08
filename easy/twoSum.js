@@ -51,4 +51,19 @@ function twoSum(nums, target) {
   }
 }
 
+const twoSum = (nums, target) => {
+  // Create the object that will hold the key/value pairs - key being an element of the input array and value being its index position in said array
+  let object = {};
+
+  // Use a for loop to check if an element of the input array is already in the object as a key, if not add the element as a key and its value shall be its index in the input array; conditional will check to see if target minus current element
+  // in the array exists as a key, if so we return said value of that key (aka its index position) and the index position of said current element
+  for (let i = 0; i < nums.length; i++) {
+    const number = nums[i];
+    if (object[target - number] !== undefined) {
+      return [object[target - number], i];
+    }
+    object[number] = i;
+  }
+};
+
 twoSum([2, 7, 11, 15], 9);
