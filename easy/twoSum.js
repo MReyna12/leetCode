@@ -31,3 +31,24 @@ function twoSum(nums, target) {
   }
   return [];
 }
+
+// Practice Attempt - 1
+
+// P: Two parameters - an array of integers (at least two) and an integer target
+// R: Return the indices of the two numbers such that they add up to the target; the order of the indices does not matter
+// E: [0, 1, 2, 3, 4], 7 - [3, 4]
+// P: Create an empty object that will store the values of the array and their respective indices if they do not already exist in the object; within the loop check if the target - current number in the loop exists in the object, if it does return that value of that key and the current i value
+function twoSum(nums, target) {
+  let object = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const number = nums[i];
+    if (object[target - number] !== undefined) {
+      return [object[target - number], i];
+    }
+    object[number] = i;
+    console.log(object);
+  }
+}
+
+twoSum([2, 7, 11, 15], 9);
