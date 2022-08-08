@@ -59,3 +59,36 @@ const validMountainArray1 = (arr) => {
 
   return isIncreasing && isDecreasing;
 };
+
+// Practice Attempt - 2
+
+// P: One parameter which is an array of integers
+// R: Return true if the array is a valid mountain array and false otherwise
+// E: [0, 1, 2, 3, 2, 1, 0] // True; [0, 1, 1, 2, 3, 2, 1] // False (must be strict increase and then strict decrease)
+// P: First check if array length is greater than or equal to three, if not return false; create two variables that will initially hold the boolean values of false--these variables will monitor if we are increasing or decreasing;
+// use a for loop to check the current and next values of the array, if increasing then said variable is true, if decreasing then said variable is false; additional conditionals to check if decreasing already true and we are now increasing return false
+// if increasing is not true while decreasing then return false
+
+function validMountainArray(arr) {
+  if (arr.length < 3) return false;
+  if (arr[0] >= arr[1]) return false;
+  if (arr[arr.length - 2] <= arr[arr.length - 1]) return false;
+
+  let isIncreasing = false;
+  let isDecreasing = false;
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] === arr[i + 1]) return false;
+    if (arr[i] < arr[i + 1]) {
+      isIncreasing = true;
+
+      if (isDecreasing) return false;
+    } else if (arr[i] > arr[i + 1]) {
+      isDecreasing = true;
+
+      if (!isIncreasing) return false;
+    }
+  }
+
+  return isIncreasing && isDecreasing;
+}
